@@ -1,0 +1,14 @@
+body{
+    background-color: aquamarine;
+}
+
+#contenedor-autores{
+    margin-top: 5px;
+}
+
+.autor, form > .mb-3{
+    margin-top: 16px;
+    background-color: rgb(77, 241, 187);
+    padding: 30px;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="container" style="margin-top: 16px;">
+        <button id="anadirAutor" class="btn btn-primary">Añadir autor</button>
+        <form method="POST">
+            <div id="contenedor-autores">
+                <div class="autor">
+                    <div class="mb-3">
+                        <label for="nombreAutor" class="form-label">Nombre del autor</label>
+                        <input type="text" class="form-control" name="nombre"">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellidoAutor" class="form-label">Apellido del autor</label>
+                        <input type="text" class="form-control" name="apellido">
+                    </div>
+                </div>
+            </div> 
+            <div class="mb-3">
+                <label for="tituloArticulo" class="form-label">Título del artículo</label>
+                <input type="text" class="form-control" name="titulo">
+            </div>
+            <div class="mb-3">
+                <label for="nombreRevista" class="form-label">Nombre de la revista</label>
+                <input type="text" class="form-control" name="revista">
+            </div>
+            <button type="submit" class="btn btn-primary">Generar cita</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        let contador = 1;
+        $("#anadirAutor").click(function(){
+            contador++;
+            $("#contenedor-autores").append(
+                '<div class="autor">'+
+                    '<div class="mb-3">' +
+                        '<label for="nombreAutor" class="form-label">Nombre del autor '+'</label>' + 
+                        '<button type="button" class="btn btn-danger" onclick="borrar(this)" style="position:relative; left:10px; bottom:10px">X</button>' +
+                        '<input type="text" class="form-control" name="nombre"">' +
+                    '</div>' +
+                    '<div class="mb-3">' +
+                        '<label for="apellidoAutor" class="form-label">Apellido del autor '+'</label>' +
+                        '<input type="text" class="form-control" name="apellido">' +
+                    '</div>'+
+                '</div>')
+        });
+
+        function borrar(b){
+            contador --;
+            b.parentNode.parentNode.remove();
+        }
+    </script>
+    <!-- <form method="post">
+        <center>
+            Nombre del autor: <input type="text"> <br>
+            Apellido del autor: <input type="text"> <br>
+            Título del artículo: <input type="text"> <br>
+            Nombre de la revista: <input type="text"> <br>
+            Última cosa importante: <input type="text">
+        </center>
+    </form> -->
+
+{% endblock %}
